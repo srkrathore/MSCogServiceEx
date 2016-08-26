@@ -1,4 +1,6 @@
 ﻿
+using MSCogServiceEx.View;
+using MSCogServiceEx.ViewModel;
 using Xamarin.Forms;
 
 namespace MSCogServiceEx
@@ -7,19 +9,21 @@ namespace MSCogServiceEx
     {
         public App()
         {
-            // The root page of your application
-            MainPage = new ContentPage
+            var tabs = new TabbedPage
             {
-                Content = new StackLayout
+                Title = "MS Cognitive Services",
+                //BindingContext = new WeatherViewModel(),
+                Children =
                 {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
+                    new ImageSearch() {Title="Search Image" ,BindingContext = new ImageSearchViewModel() } ,
+                    new EmotionEx() { Title="Emotion Ser. Ex.", BindingContext = new EmotionViewModel()}
                 }
+            };
+
+            MainPage = new NavigationPage(tabs)
+            {
+                BarBackgroundColor = Color.FromHex("3498db"),
+                BarTextColor = Color.White
             };
         }
 

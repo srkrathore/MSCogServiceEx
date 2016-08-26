@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSCogServiceEx.View.EmotionEx">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Button">
+        <Setter Property="BorderRadius" Value="10" />
+        <Setter Property="BorderWidth" Value="2" />
+        <Setter Property="WidthRequest" Value="50" />
+        <Setter Property="HeightRequest" Value="150" />
+        <Setter Property="HorizontalOptions"  Value="Center" />
+        <Setter Property="VerticalOptions"    Value="Center" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="BackgroundColor" Value="Blue" />
+        <Setter Property="TextColor" Value="White" />
+      </Style>    
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ScrollView>
+    <StackLayout Spacing="10" Padding="10">
+      <StackLayout Spacing="5" Orientation="Horizontal">
+        <Button Text="Take Photo" Command="{Binding TakePhotoCommand}"/>
+        <Button Text="Pick Photo" Command="{Binding PickPhotoCommand}"/>
+        <Button Text="Check Emotion" Command="{Binding CheckEmotionCommand}"/>
+      </StackLayout>      
+      <Image Source="{Binding SelectedImage}" />
+      <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+      <Label Text="{Binding Message}" FontSize="Large" FontAttributes="Bold" />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
