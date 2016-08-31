@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MSCogServiceEx.View.EmotionEx">
+             x:Class="MSCogServiceEx.View.FaceEx">
   <ContentPage.Resources>
     <ResourceDictionary>
       <Style TargetType="Button">
@@ -14,15 +14,15 @@
         <Setter Property="FontSize" Value="Medium" />
         <Setter Property="BackgroundColor" Value="Blue" />
         <Setter Property="TextColor" Value="White" />
-      </Style>    
+      </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
   <ScrollView>
     <StackLayout Spacing="10" Padding="10" HorizontalOptions="Center" >
-      <Label Text="Emotion Service Example" FontSize="Large" FontAttributes="Bold" />
+      <Label Text="Faces Service Example" FontSize="Large" FontAttributes="Bold" />
       <StackLayout Spacing="10">
-        <Button Text="Take Photo to Check Emotion " Command="{Binding TakePhotoCommand}"/>
-        <Button Text="Pick Photo to Check Emotion " Command="{Binding PickPhotoCommand}"/>
+        <Button Text="Take Photo to Check Faces " Command="{Binding TakePhotoCommand}"/>
+        <Button Text="Pick Photo to Check Faces " Command="{Binding PickPhotoCommand}"/>
       </StackLayout>
       <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
       <Label Text="{Binding Message}" FontSize="Large" FontAttributes="Bold" />

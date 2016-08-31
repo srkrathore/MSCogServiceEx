@@ -16,7 +16,8 @@ namespace MSCogServiceEx
                 Children =
                 {
                     new ImageSearch() {Title="Search Image" ,BindingContext = new ImageSearchViewModel() } ,
-                    new EmotionEx() { Title="Emotion Ser. Ex.", BindingContext = new EmotionViewModel()}
+                    new EmotionEx() { Title="Emotion Ex.", BindingContext = new EmotionViewModel()},
+                    new FaceEx() {Title="Face Ex.",BindingContext=new FaceViewModel()}
                 }
             };
 

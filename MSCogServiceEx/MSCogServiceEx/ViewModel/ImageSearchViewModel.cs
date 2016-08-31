@@ -1,7 +1,6 @@
 ﻿using MSCogServiceEx.Model;
 using MSCogServiceEx.Services;
 using MSCogServiceEx.Services.BingSearch;
-using MvvmHelpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -93,79 +92,5 @@ namespace MSCogServiceEx.ViewModel
         public void OnPropertyChanged([CallerMemberName]string name = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
-    //public class ImageSearchViewModel
-    //{
-    //    public ObservableRangeCollection<ImageResult> Images { get; }
-
-    //    public async Task AnalyzeImageAsync(string imageUrl)
-    //    {
-    //        var result = string.Empty;
-    //        try
-    //        {
-    //            using (var client = new HttpClient())
-    //            {
-    //                var stream = await client.GetStreamAsync(imageUrl);
-
-    //                var emotion = await EmotionService.GetAverageHappinessScoreAsync(stream);
-
-    //                result = EmotionService.GetHappinessMessage(emotion);
-    //            }
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            result = "Unable to analyze image";
-    //        }
-
-    //        await UserDialogs.Instance.AlertAsync(result);
-
-    //    }
-
-
-
-
-
-
-    //    public async Task TakePhotoAndAnalyzeAsync(bool useCamera = true)
-    //    {
-    //        string result = "Error";
-    //        MediaFile file = null;
-    //        try
-    //        {
-
-    //            await CrossMedia.Current.Initialize();
-
-
-    //            if (useCamera)
-    //            {
-    //                file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-    //                {
-    //                    Directory = "Samples",
-    //                    Name = "test.jpg",
-    //                    SaveToAlbum = true
-    //                });
-    //            }
-    //            else
-    //            {
-    //                file = await CrossMedia.Current.PickPhotoAsync();
-    //            }
-
-
-    //            if (file == null)
-    //                result = "No photo taken.";
-    //            else
-    //            {
-    //                var emotion = await EmotionService.GetAverageHappinessScoreAsync(file.GetStream());
-
-    //                result = EmotionService.GetHappinessMessage(emotion);
-    //            }
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            result = ex.Message;
-    //        }
-
-    //        await UserDialogs.Instance.AlertAsync(result, "Emotion", "OK");
-    //    }
-
-    //}
+    
 }

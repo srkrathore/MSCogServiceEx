@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace MSCogServiceEx.ViewModel
 {
-    public class EmotionViewModel : INotifyPropertyChanged
+    public class FaceViewModel : INotifyPropertyChanged
     {
         string msgString;
         public string Message
@@ -62,7 +62,7 @@ namespace MSCogServiceEx.ViewModel
                 var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
                     Directory = "Sample",
-                    Name = "EmotionCheckPic.jpg",
+                    Name = "FaceCheckPic.jpg",
                     SaveToAlbum = true
                 });
 
@@ -74,8 +74,8 @@ namespace MSCogServiceEx.ViewModel
                     return file.GetStream();
                 });
                 selectedPicStream = file.GetStream();
-                var emotion = await EmotionService.GetAverageHappinessScoreAsync(selectedPicStream);
-                Message = EmotionService.GetHappinessMessage(emotion);
+                var vFaces = await FaceService.UploadAndDetectFaces(selectedPicStream);
+                Message = "There are " + vFaces.Length.ToString() + " faces in picture";
                 file.Dispose();
 
             }
@@ -115,14 +115,14 @@ namespace MSCogServiceEx.ViewModel
                     return;
                 SelectedImage = ImageSource.FromStream(() => file.GetStream());
                 selectedPicStream = file.GetStream();
-                var emotion = await EmotionService.GetAverageHappinessScoreAsync(selectedPicStream);
-                Message = EmotionService.GetHappinessMessage(emotion);
+                var vFaces = await FaceService.UploadAndDetectFaces(selectedPicStream);
+                Message = "There are " + vFaces.Length.ToString() + " faces in picture";
                 file.Dispose();
 
             }
             catch (Exception ex)
             {
-                Message = "Uh oh :( Something went wrong \n" + ex.Message;
+                Message = "Uh oh :( Something went wrong \n Error Message : " + ex.Message ;
                 IsBusy = false;
             }
             finally
