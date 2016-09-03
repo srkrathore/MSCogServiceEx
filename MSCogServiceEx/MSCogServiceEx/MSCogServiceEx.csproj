@@ -44,7 +44,7 @@
     <Compile Include="Services\BingSearch\Thumbnail.cs" />
     <Compile Include="Services\EmotionService.cs" />
     <Compile Include="Services\FaceService.cs" />
-    <Compile Include="Services\ServiceKeys.cs" />
+    <Compile Include="Services\CognitiveServicesKeys.cs" />
     <Compile Include="ViewModel\EmotionViewModel.cs" />
     <Compile Include="ViewModel\FaceViewModel.cs" />
     <Compile Include="ViewModel\ImageSearchViewModel.cs" />
